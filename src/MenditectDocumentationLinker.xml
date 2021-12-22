@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="menditect.menditectdocumentationlinker.MenditectDocumentationLinker" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Menditect Documentation Linker</name>
+    <description>Widgets that allows for automatically linking to Mendictect documentation</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+            <property key="link" type="string" required="true" defaultValue="https://menditect.github.io/documentation/">
+                <caption>Documentation link</caption>
+                <description>A link to a documentation page</description>
+            </property>
+            <property key="layout" type="enumeration" required="true" defaultValue="text">
+                <caption>Design</caption>
+                <description>Allows for changing the design of the layout link</description>
+                <enumerationValues>
+                    <enumerationValue key="text">Text</enumerationValue>
+                    <enumerationValue key="icon">Icon</enumerationValue>
+                    <enumerationValue key="iconwithtext">Icon and Text</enumerationValue>
+                    <enumerationValue key="link">Link</enumerationValue>
+                </enumerationValues>
+            </property>
+            <property key="text" type="string" required="false" defaultValue="documentation">
+                <caption>Text</caption>
+                <description>applicable when design is set to text</description>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>

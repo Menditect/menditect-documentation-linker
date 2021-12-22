@@ -1,0 +1,31 @@
+.md-doc-link, .md-doc-link span {
+  display: inline-flex;
+  align-items: center;
+}
+
+.md-doc-link {
+  padding: 0.25rem 0.8rem 0.4rem 0.8rem;
+  color: #54a8f2;
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+  background: white;
+}
+
+.md-doc-link--icon {
+  padding: 1rem;
+}
+
+.md-doc-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+.md-doc-link--iconwithtext svg {
+  width: 14px;
+  height: 14px;
+  margin-left: 0.7rem;
+}
+
+.md-doc-link:hover {
+  text-decoration: none;
+}
