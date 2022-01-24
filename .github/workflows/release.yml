@@ -31,5 +31,5 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
-          name: 'Release'
+          name: 'Release ${{ steps.package-version.outputs.current-version}}'
           files: dist/${{ steps.package-version.outputs.current-version}}/menditect.MenditectDocumentationLinker.mpk
