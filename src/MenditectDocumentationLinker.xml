@@ -8,9 +8,15 @@
     <icon/>
     <properties>
         <propertyGroup caption="General">
-            <property key="link" type="string" required="true" defaultValue="https://menditect.github.io/documentation/">
-                <caption>Documentation link</caption>
-                <description>A link to a documentation page</description>
+            <property key="link" type="expression" required="true" defaultValue="'https://menditect.github.io/documentation/'">
+                <caption>Base link</caption>
+                <description>The base link of the documentation pages (prefer to be a constant)</description>
+                <returnType type="String" />
+            </property>
+            <property key="tag" type="expression" required="false" defaultValue="'test-run'">
+                <caption>Tag</caption>
+                <description>The tag that we want to link to</description>
+                <returnType type="String" />
             </property>
             <property key="layout" type="enumeration" required="true" defaultValue="text">
                 <caption>Design</caption>
@@ -22,9 +28,10 @@
                     <enumerationValue key="link">Link</enumerationValue>
                 </enumerationValues>
             </property>
-            <property key="text" type="string" required="false" defaultValue="documentation">
+            <property key="text" type="expression" required="false" defaultValue="'documentation'">
                 <caption>Text</caption>
                 <description>applicable when design is set to text</description>
+                <returnType type="String" />
             </property>
         </propertyGroup>
     </properties>

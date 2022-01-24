@@ -7,7 +7,7 @@ import "./ui/MenditectDocumentationLinker.css";
 export default function MenditectDocumentationLinker(props: MenditectDocumentationLinkerContainerProps): JSX.Element {
     function LinkContent(): JSX.Element {
         if (props.layout === "text") {
-            return <span>{props.text}</span>;
+            return <span>{props.text?.value?.toString()}</span>;
         } else if (props.layout === "icon") {
             return <Icon />;
         } else if (props.layout === "iconwithtext") {
@@ -18,19 +18,67 @@ export default function MenditectDocumentationLinker(props: MenditectDocumentati
                 </span>
             );
         } else if (props.layout === "link") {
-            return <span>{props.text}</span>;
+            return <span>{props.text?.value?.toString()}</span>;
         } else {
             return <span>documentation</span>;
         }
     }
 
+    function openWindow(link: string | undefined): void {
+        window.open(link, "_blank");
+    }
+
+    function findCorrectLink(event: any): void {
+        event.preventDefault();
+
+        // check if the user defined a base link
+        if (props.link.value === undefined) {
+            throw new Error("No baselink provided");
+        }
+
+        // if no tag is defined, send them to the default value of link
+        if (props.tag === undefined) {
+            openWindow(props.link.value);
+            return;
+        }
+
+        const baseLinkCleaned = props.link.value.replace(/\/$/, "");
+        const tag = props.tag?.value;
+
+        const docusaurusSearchJsonUrl = `${baseLinkCleaned}/search-index-docs-default-current.json`;
+        fetch(docusaurusSearchJsonUrl)
+            .then(resp => resp.json())
+            .then(data => {
+                const document = data.documents.find((document: { sectionRoute: string }) => {
+                    const link = document.sectionRoute;
+                    const lastPart = link.substring(link.lastIndexOf("/") + 1, link.length);
+                    return lastPart === tag;
+                });
+
+                // cannot find the tag in documents, so it does not exist on the documentation pages
+                if (!document) {
+                    throw new Error("Cannot find tag");
+                } else {
+                    if (props.link.value) {
+                        const url: string = props.link.value.toString();
+                        const defaultLink = new URL(url);
+                        openWindow(`https://${defaultLink.hostname}${document.sectionRoute}`);
+                    }
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
+
     return (
         <a
             className={`md-doc-link md-doc-link--${props.layout}`}
-            href={props.link}
+            href={props.link.value?.toString()}
             target="_blank"
             rel="noreferrer"
             title="link to documentation"
+            onClick={findCorrectLink}
         >
             <LinkContent />
         </a>

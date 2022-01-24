@@ -4,6 +4,7 @@
  * @author Mendix UI Content Team
  */
 import { CSSProperties } from "react";
+import { DynamicValue } from "mendix";
 
 export type LayoutEnum = "text" | "icon" | "iconwithtext" | "link";
 
@@ -12,9 +13,10 @@ export interface MenditectDocumentationLinkerContainerProps {
     class: string;
     style?: CSSProperties;
     tabIndex?: number;
-    link: string;
+    link: DynamicValue<string>;
+    tag?: DynamicValue<string>;
     layout: LayoutEnum;
-    text: string;
+    text?: DynamicValue<string>;
 }
 
 export interface MenditectDocumentationLinkerPreviewProps {
@@ -23,6 +25,7 @@ export interface MenditectDocumentationLinkerPreviewProps {
     styleObject?: CSSProperties;
     readOnly: boolean;
     link: string;
+    tag: string;
     layout: LayoutEnum;
     text: string;
 }
