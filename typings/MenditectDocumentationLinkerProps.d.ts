@@ -8,6 +8,8 @@ import { DynamicValue } from "mendix";
 
 export type LayoutEnum = "text" | "icon" | "iconwithtext" | "link";
 
+export type GroupboxEnum = "normal" | "header";
+
 export interface MenditectDocumentationLinkerContainerProps {
     name: string;
     class: string;
@@ -16,6 +18,7 @@ export interface MenditectDocumentationLinkerContainerProps {
     link: DynamicValue<string>;
     tag?: DynamicValue<string>;
     layout: LayoutEnum;
+    groupbox: GroupboxEnum;
     text?: DynamicValue<string>;
 }
 
@@ -27,5 +30,6 @@ export interface MenditectDocumentationLinkerPreviewProps {
     link: string;
     tag: string;
     layout: LayoutEnum;
+    groupbox: GroupboxEnum;
     text: string;
 }

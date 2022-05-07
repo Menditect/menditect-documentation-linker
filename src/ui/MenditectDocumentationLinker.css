@@ -29,3 +29,13 @@
 .md-doc-link:hover {
   text-decoration: none;
 }
+
+.mx-groupbox {
+  position: relative;
+}
+
+.md-doc-groupby--header {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

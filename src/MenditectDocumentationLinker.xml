@@ -28,6 +28,14 @@
                     <enumerationValue key="link">Link</enumerationValue>
                 </enumerationValues>
             </property>
+            <property key="groupbox" type="enumeration" required="true" defaultValue="normal">
+                <caption>Inside groupbox</caption>
+                <description>Allows to define the position in the groupby</description>
+                <enumerationValues>
+                    <enumerationValue key="normal">Normal</enumerationValue>
+                    <enumerationValue key="header">Header right</enumerationValue>
+                </enumerationValues>
+            </property>
             <property key="text" type="expression" required="false" defaultValue="'documentation'">
                 <caption>Text</caption>
                 <description>applicable when design is set to text</description>
