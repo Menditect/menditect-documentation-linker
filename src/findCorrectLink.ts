@@ -33,12 +33,10 @@ export async function findCorrectLink(props: MenditectDocumentationLinkerContain
     if (!document) {
         throw new Error("Cannot find tag");
     } else {
-        if (props.link.value) {
-            const url: string = props.link.value.toString();
-            const defaultLink = new URL(url);
-            const result = `https://${defaultLink.hostname}${document.sectionRoute}`;
-            openWindow(`https://${defaultLink.hostname}${document.sectionRoute}`);
-            return result;
-        }
+        const url: string = props.link.value.toString();
+        const defaultLink = new URL(url);
+        const result = `https://${defaultLink.hostname}${document.sectionRoute}`;
+        openWindow(`https://${defaultLink.hostname}${document.sectionRoute}`);
+        return result;
     }
 }
