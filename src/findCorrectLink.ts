@@ -14,7 +14,6 @@ export async function findCorrectLink(props: MenditectDocumentationLinkerContain
         return result;
     }
 
-    const baseLinkCleaned = props.link.value.replace(/\/$/, "");
     const tag = props.tag?.value;
 
     const document = data.documents.find((document: { sectionRoute: string }) => {
