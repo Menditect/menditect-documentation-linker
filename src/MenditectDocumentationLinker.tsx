@@ -5,7 +5,6 @@ import { MenditectDocumentationLinkerContainerProps } from "../typings/Menditect
 
 import "./ui/MenditectDocumentationLinker.css";
 import { createElement } from "react";
-import { openWindow } from "./openWindow";
 import { findCorrectLink } from "./findCorrectLink";
 import { retrieveData } from "./retrieveData";
 
