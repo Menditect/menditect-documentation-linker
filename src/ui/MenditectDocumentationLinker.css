@@ -39,3 +39,10 @@
   top: 0;
   right: 0;
 }
+
+/* if a link is floated into a header, make it transparent */
+.mx-groupbox .md-doc-groupby--header {
+  color: white;
+  border: 1px solid transparent;
+  background: transparent;
+}
