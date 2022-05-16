@@ -1,0 +1,7 @@
+name: Development CI/CD
+on:
+  push:
+    branches: [development]
+jobs:
+  test:
+    uses: ./.github/workflows/test.yaml
