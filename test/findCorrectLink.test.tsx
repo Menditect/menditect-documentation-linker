@@ -1,7 +1,5 @@
-import React from "react";
-import { beforeEach, describe, expect, test, vi } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 import { findCorrectLink } from "../src/findCorrectLink";
-import { DynamicValue } from "mendix";
 import { retrieveData } from "../src/retrieveData";
 import "cross-fetch/polyfill";
 vi.stubGlobal("window", null);
