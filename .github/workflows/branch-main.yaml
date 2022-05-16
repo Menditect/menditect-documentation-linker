@@ -1,0 +1,10 @@
+name: Main CI/CD
+on:
+  push:
+    branches: [main]
+jobs:
+  test:
+    uses: ./.github/workflows/test.yaml
+  release:
+    needs: test
+    uses: ./.github/workflows/release.yaml
