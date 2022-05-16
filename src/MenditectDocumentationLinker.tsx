@@ -10,16 +10,17 @@ import { retrieveData } from "./retrieveData";
 
 export default function MenditectDocumentationLinker(props: MenditectDocumentationLinkerContainerProps): JSX.Element {
     function LinkContent(): JSX.Element {
+        const color = props.groupbox === "header" ? "#FFFFFF" : "#000000";
         switch (props.layout) {
             case "text":
                 return <span>{props.text?.value?.toString()}</span>;
             case "icon":
-                return <Icon />;
+                return <Icon color={color} />;
             case "iconwithtext":
                 return (
                     <span>
                         <span>{props.text?.value?.toString()}</span>
-                        <Icon />
+                        <Icon color={color} />
                     </span>
                 );
             case "link":

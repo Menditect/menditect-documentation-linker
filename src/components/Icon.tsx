@@ -1,6 +1,6 @@
 import { createElement } from "react";
 
-export function Icon(): JSX.Element {
+export function Icon(props: any): JSX.Element {
     return (
         <svg
             version="1.0"
@@ -10,7 +10,7 @@ export function Icon(): JSX.Element {
             viewBox="0 0 512.000000 512.000000"
             preserveAspectRatio="xMidYMid meet"
         >
-            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+            <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill={props.color} stroke="none">
                 <path
                     d="M2315 5109 c-597 -61 -1141 -318 -1563 -739 -1002 -1000 -1002 -2620
 0 -3620 406 -405 901 -648 1493 -732 119 -17 512 -16 635 1 580 80 1089 330
